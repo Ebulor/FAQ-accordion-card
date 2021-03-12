@@ -1,0 +1,184 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --Very_dark_desaturated_blue: hsl(238, 29%, 16%);
+    --Soft_red: hsl(14, 88%, 65%);
+    --Soft_violet: hsl(273, 75%, 66%);
+    --Soft_blue: hsl(240, 73%, 65%);
+    --Very_dark_grayish_blue: hsl(237, 12%, 33%);
+    --Dark_grayish_blue: hsl(240, 6%, 50%);
+    --Light_grayish_blue: hsl(240, 5%, 91%);
+    --gradient: linear-gradient(to right, hsl(240, 73%, 65%),hsl(273, 75%, 66%));
+}
+body{
+    font-family: 'Kumbh Sans', sans-serif;
+    background-image: var(--gradient);
+    padding: 40px;
+    padding-top: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: block;
+    background-color: white;
+    border-radius: 25px;
+    height: 500px;
+    width: 350px;
+    padding-top: 5em;
+    padding-bottom: 2em;
+    color: black;
+}
+.cube{
+    display: none;
+}
+.faq{
+    display: block;    
+}
+.top{
+    position: absolute;
+    top: 3.5em; 
+    left: 80px;
+    right: 80px;
+    display: block;        
+}
+.mobile-pattern{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: -6px;
+}
+.mobile-pattern img:nth-child(2){
+    position: relative;
+    top: -85px;
+    left: 15px;
+}
+.desktop-pattern{
+    display: none;
+}
+.bottom{
+    width: 100%;
+    margin-top: 20px;
+    display: block;
+    padding: 40px;      
+}
+.text{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.accordion{
+    border-bottom: 1px solid #e7e7e9;    
+    padding: 15px 0;  
+    width: 100%;      
+}
+.accordion__button{
+    background-color: white;
+    display: block;
+    width: 100%;
+    font-size: 13px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: 0.3s;    
+}
+.accordion__button:hover{
+    color: var(--Soft_red);
+}
+.accordion__button::after{
+    content: url(images/icon-arrow-down.svg);
+    -webkit-transition: -webkit-transform .3s ease-in-out;
+    -ms-transition: -ms-transform .3s ease-in-out;
+    transition: transform .3s ease-in-out;
+    float: right;       
+}
+.accordion__button--active{
+    padding-bottom: 10px;
+    font-weight: 700;    
+}
+.accordion__button--active::after{
+    content: url(images/icon-arrow-down.svg);
+    transform: rotate(180deg);
+}
+.accordion__content{
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s;
+    padding: 0;
+    font-size: 12px;    
+    line-height: 1.5em;
+}
+@media (min-width: 900px){
+    body{
+        min-height: 100vh;
+        padding: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+    .container{
+        width: 55pc; 
+        display: flex;       
+        flex-direction: row;  
+        padding: 0; 
+        position: relative;     
+    }
+    .cube{
+        display: block;
+        position: absolute;
+        z-index: 2;
+        top: 37%;
+        right: 62em;
+        left: -5em;
+        animation: bounce 1.6s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;      
+    }
+    @keyframes bounce { 
+        0% { transform: translateY(0); }
+        100% { transform: translateX(-20px); }
+    }
+    .faq{
+        padding: 40px;
+        padding-right: 0;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        background-image: url(../images/bg-pattern-desktop.svg);
+        background-position-y: -18em;
+        background-position-x: -35em;
+        background-repeat: no-repeat;
+    }
+    .top{
+        width: 50%;
+        right: 0;
+        top: 2em;
+        left: -7em;
+        position: relative;                   
+    }
+    .mobile-pattern{
+        display: none;
+    }
+    .desktop-pattern{
+        display: block;          
+    }
+    .bottom{
+        width: 50%;
+        margin-top: 0;
+        padding-top: 40px;    
+        padding-bottom: 0; 
+        padding-left: 40px;                        
+    }
+    .text{
+        text-align: left;
+    }
+    .accordion-container{
+        width: 300px;        
+    }
+    .accordion{
+        width: 100%;
+    }
+}

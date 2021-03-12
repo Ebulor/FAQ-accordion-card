@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>FAQ accordion card</title>
+</head>
+<body>
+  <div class="container">
+    <div class="cube"><img src="images/illustration-box-desktop.svg" alt="cube"></div>
+    <div class="faq">
+      <div class="top">
+        <div class="mobile-pattern">
+          <img src="images/illustration-woman-online-mobile.svg" alt="illustration">
+          <img src="images/bg-pattern-mobile.svg" alt="shadow pattern">
+        </div>
+        <div class="desktop-pattern">
+          <img src="images/illustration-woman-online-desktop.svg" alt="illustration">
+        </div>         
+      </div>
+      <div class="bottom">
+        <div class="text"><h1>FAQ</h1></div>
+        <div class="accordion-container">
+          <div class="accordion">
+            <button type="button" class="accordion__button">How many team members can I invite?</button>
+            <div class="accordion__content">
+              <p>How many team members can I invite? You can invite up to 2 additional users 
+                on the Free plan. There is no limit on team members for the Premium plan.
+              </p>
+            </div>
+          </div>
+          <div class="accordion">
+            <button type="button" class="accordion__button">What is the maximum file upload size?</button>
+            <div class="accordion__content">
+              <p>No more than 2GB. All files in your account must fit your allotted storage space.</p>
+            </div>
+          </div>
+          <div class="accordion">
+            <button type="button" class="accordion__button">How do I reset my password?</button>
+            <div class="accordion__content">
+              <p>Click “Forgot password” from the login page or “Change password” from your profile page.
+                A reset link will be emailed to you.
+              </p>
+            </div>
+          </div>
+          <div class="accordion">
+            <button type="button" class="accordion__button">Can I cancel my subscription?</button>
+            <div class="accordion__content">
+              <p>Yes! Send us a message and we’ll process your request no questions asked.</p>
+            </div>
+          </div>
+          <div class="accordion">
+            <button type="button" class="accordion__button">Do you provide additional support?</button>
+            <div class="accordion__content">
+              <p>Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <script>
+    document.querySelectorAll('.accordion__button').forEach(button =>{
+      button.addEventListener('click', () =>{
+        const accordionContent = button.nextElementSibling;
+
+        button.classList.toggle('accordion__button--active');
+
+        if(button.classList.contains('accordion__button--active')){
+          accordionContent.style.maxHeight = "150px";
+        }
+        else{
+          accordionContent.style.maxHeight = 0;
+        }
+      });
+    });
+  </script>
+
+    
+</body>
+</html>
